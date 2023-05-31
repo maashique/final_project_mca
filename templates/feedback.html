@@ -1,0 +1,38 @@
+{% extends "userBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+<section class="w3l-contact-11">
+	<div class="form-41-mian py-5 text-center">
+		<div class="container py-lg-4">
+			<div class="row align-form-map">
+				<div class="col-lg-6 form-inner-cont" style="margin: auto">
+					<div class="title-content text-left">
+						<h3 class="hny-title mb-lg-5 mb-4 text-center">Feedback</h3>
+					</div>
+					<form action="" method="post" class="signin-form">
+						{% csrf_token%}
+						<div class="form-input">
+							<textarea
+								name="feedback"
+								id="w3lSender"
+								placeholder="Enter the feedback"
+								title="Enter the feedback"
+								required
+							></textarea>
+						</div>
+						<div class="submit-button text-lg text-center">
+							<button type="submit" class="btn btn-style" style="margin: auto">
+								Add Feedback
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</section>
+<!-- //contact-form -->
+<!-- footer-66 -->
+{% endblock %}

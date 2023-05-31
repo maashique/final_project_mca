@@ -1,0 +1,174 @@
+{% extends "userBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+<section class="w3l-contact-11">
+	<div class="form-41-mian py-5 text-center">
+		<div class="container-fluid py-lg-4">
+			<div class="row align-form-map">
+				<div class="col-lg-10 form-inner-cont" style="margin: auto">
+					<div class="title-content text-left">
+						<h3 class="hny-title mb-lg-5 mb-4 text-center">Product Details</h3>
+					</div>
+					<form action="" method="post" class="signin-form">
+						{% csrf_token%}
+						<div class="form-input">
+							<input
+								name="product"
+								id="w3lSender"
+								placeholder="Enter the product details"
+								title="Enter the product details"
+								required
+								value="{{nme}}"
+								readonly
+							/>
+						</div>
+						<div class="submit-button text-lg text-center">
+							<button type="submit" class="btn btn-style" style="margin: auto">
+								Search Product
+							</button>
+						</div>
+					</form>
+					{% if pro %}
+					
+					<table class="table table-striped table-hover mt-5">
+						{% if r1 == 'T' %}
+						<tr>
+							<td>
+								<img
+									src="/static/images/fl.png"
+									width="50"
+									style="align-items: center"
+									alt=""
+								/>
+							</td>
+							<td>
+								<img src="{{img1}}" width="200" alt="" />
+							</td>
+							<td>
+								<h5>{{fName}}</h5>
+								<h3>{{fp}}</h3>
+							</td>
+							<td>{{d1}} {{d2}} {{d3}}</td>
+							<td>
+								<h3><a href="{{fLink}}" target="_blank">Link</a></h3>
+								<h4>
+									<a
+										href="/addToWish?res={{res.id}}&si=flipkart"
+										class="text-success"
+										><i
+											class="fa fa-heart-o"
+											aria-hidden="true"
+											title="Add to wishlist"
+										></i
+									></a>
+								</h4>
+							</td>
+						</tr>
+						{% else %}
+						<tr>
+							<td>
+								<h4 class="text-danger">No Item Found</h4>
+							</td>
+						</tr>
+						{% endif %} {% if r2 == 'T' %}
+						<tr>
+							<td>
+								<img
+									src="/static/images/am.png"
+									width="50"
+									style="align-items: center"
+									alt=""
+									srcset=""
+								/>
+							</td>
+							<td>
+								<img src="{{img2}}" width="200" alt="" />
+							</td>
+							<td>
+								<h5>{{aName}}</h5>
+								<h3>{{ap}}</h3>
+							</td>
+							<td>{{d1}} {{d2}} {{d3}}</td>
+							<td>
+								<h3><a href="{{aLink}}" target="_blank">Link</a></h3>
+								<h4>
+									<a
+										href="/addToWish?res={{res.id}}&si=amazon"
+										class="text-success"
+										><i
+											class="fa fa-heart-o"
+											aria-hidden="true"
+											title="Add to wishlist"
+										></i
+									></a>
+								</h4>
+							</td>
+						</tr>
+						{% else %}
+						<tr>
+							<td>
+								<h4 class="text-danger">No Item Found</h4>
+							</td>
+						</tr>
+						{% endif %} {% if r3 == 'T' %}
+						<tr>
+							<td>
+								<img
+									src="/static/images/ol.png"
+									width="50"
+									style="align-items: center"
+									alt=""
+									srcset=""
+								/>
+							</td>
+							<td>
+								<img src="{{cImg}}" width="200" alt="" />
+							</td>
+							<td>
+								<h5>{{cName}}</h5>
+								<h3>{{cRate}}</h3>
+							</td>
+							<td>{{d1}} {{d2}} {{d3}}</td>
+							<td>
+								<h3><a href="{{cLink}}" target="_blank">Link</a></h3>
+								<h4>
+									<a
+										href="/addToWish?res={{res.id}}&si=other"
+										class="text-success"
+										><i
+											class="fa fa-heart-o"
+											aria-hidden="true"
+											title="Add to wishlist"
+										></i
+									></a>
+								</h4>
+							</td>
+						</tr>
+						{% else %}
+						<tr>
+							<td>
+								<h4 class="text-danger">No Item Found</h4>
+							</td>
+						</tr>
+						{% endif %}
+					</table>
+					{% else %}
+
+					<div
+						class="d-flex justify-content-around mt-5 col-6"
+						style="margin: auto"
+					>
+						<img src="/static/images/fl.png" width="200" alt="" />
+						<img src="/static/images/am.png" width="200" alt="" />
+						<img src="/static/images/ol.png" width="200" alt="" />
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //contact-form -->
+<!-- footer-66 -->
+{% endblock %}

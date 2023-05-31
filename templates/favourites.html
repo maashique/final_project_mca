@@ -1,0 +1,70 @@
+{% extends "userBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+
+<section class="w3l-contact-11">
+	<div class="form-41-mian py-5 text-center">
+		<div class="container-fluid py-lg-4">
+			<div class="row align-form-map">
+				<div class="col-lg-10 form-inner-cont" style="margin: auto">
+					<div class="title-content text-left">
+						<h3 class="hny-title mb-lg-5 mb-4 text-center">Favourites</h3>
+					</div>
+					<div
+						class="w3-services-grids py-lg-4 text-center"
+						style="padding: 20px"
+					>
+						<div class="fea-gd-vv row">
+							{% for i in datas %}
+							<div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+								<div class="feature-gd icon-yellow">
+									<h2>{{i.site}}</h2>
+									<div class="icon">
+										<i
+											><img
+												src="{{i.response.img1}}"
+												style="
+													height: 100px;
+													width: 100px;
+													padding-right: 26px;
+													padding-bottom: 5px;
+												"
+										/></i>
+									</div>
+									<div class="info" style="margin-top: 50px">
+										<h3>Product.{{i.response.requirements.desc}}</h3>
+										<p>
+											{% if i.site == 'flipkart' %} {{i.response.rate1}}
+											{%elif i.site == 'other' %} {{i.response.rate3}} {% else %} {{i.response.rate2}} {% endif %}
+										</p>
+										<p>
+											{% if i.site == 'flipkart' %}
+											<a href="{{i.response.url1}}">Link</a>
+											{% elif i.site == 'other' %}
+											<a href="{{i.response.url3}}">Link</a>
+											{% else %}
+											<a href="{{i.response.url2}}">Link</a>
+											{% endif %}
+										</p>
+
+										<a href="/prodReview?id={{i.response.requirements.pid.id}}" title="Add Review">Review</a> <br><br>
+										<a href="/deleteFav?id={{i.id}}" title="Delete">❌</a>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- //contact-form -->
+<!-- footer-66 -->
+{% if msg %}
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %} {% endblock %}

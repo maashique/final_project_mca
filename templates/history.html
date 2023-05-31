@@ -1,0 +1,132 @@
+{% extends "userBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+<section class="w3l-contact-11">
+	<div class="form-41-mian py-5 text-center">
+		<div class="container-fluid py-lg-4">
+			<div class="row align-form-map">
+				<div class="col-lg-10 form-inner-cont" style="margin: auto">
+					<div class="title-content text-left">
+						<h3 class="hny-title mb-lg-5 mb-4 text-center">History</h3>
+					</div>
+					<div
+						class="w3-services-grids py-lg-4 text-center"
+						style="padding: 20px"
+					>
+						<div class="fea-gd-vv row">
+							{% for i in res %}
+							<div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+								<div class="feature-gd icon-yellow">
+									<h2>Flipkart</h2>
+									<div class="icon">
+										<i
+											><img
+												src="{{i.img1}}"
+												style="
+													height: 100px;
+													width: 100px;
+													padding-right: 26px;
+													padding-bottom: 5px;
+												"
+										/></i>
+									</div>
+									<div class="info" style="margin-top: 50px">
+										<h3>Product.{{i.requirements.desc}}</h3>
+										<h3>Rs.{{i.rate1}}</h3>
+										<p>{{i.desc1}}</p>
+										<p>
+											<a href="{{i.url1}}">Link</a>
+											<a
+												href="/addToWish?res={{i.id}}&si=flipkart"
+												class="text-success"
+												><i
+													class="fa fa-heart-o"
+													aria-hidden="true"
+													title="Add to wishlist"
+												></i
+											></a>
+										</p>
+										<a href="/deleteHistory?id={{i.id}}">❌</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+								<div class="feature-gd icon-yellow">
+									<h2>Amazon</h2>
+									<div class="icon">
+										<i
+											><img
+												src="{{i.img2}}"
+												style="
+													height: 100px;
+													width: 100px;
+													padding-right: 26px;
+													padding-bottom: 5px;
+												"
+										/></i>
+									</div>
+									<div class="info" style="margin-top: 50px">
+										<h3>Product.{{i.requirements.desc}}</h3>
+										<h3>Rs.{{i.rate2}}</h3>
+										<p>{{i.desc2}}</p>
+										<p>
+											<a href="{{i.url2}}">Link</a>
+											<a
+												href="/addToWish?res={{i.id}}&si=amazone"
+												class="text-success"
+												><i
+													class="fa fa-heart-o"
+													aria-hidden="true"
+													title="Add to wishlist"
+												></i
+											></a>
+										</p>
+										<a href="/deleteHistory?id={{i.id}}" title="Delete">❌</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-4 col-md-7" style="margin-bottom: 30px">
+								<div class="feature-gd icon-yellow">
+									<h2>Other</h2>
+									<div class="icon">
+										<i
+											><img
+												src="{{i.img3}}"
+												style="
+													height: 100px;
+													width: 100px;
+													padding-right: 26px;
+													padding-bottom: 5px;
+												"
+										/></i>
+									</div>
+									<div class="info" style="margin-top: 50px">
+										<h3>Product.{{i.requirements.desc}}</h3>
+										<h3>Rs.{{i.rate3}}</h3>
+										<p>{{i.desc3}}</p>
+										<p>
+											<a href="{{i.url3}}">Link</a>
+											<a
+												href="/addToWish?res={{i.id}}&si=other"
+												class="text-success"
+												><i
+													class="fa fa-heart-o"
+													aria-hidden="true"
+													title="Add to wishlist"
+												></i
+											></a>
+										</p>
+										<a href="/deleteHistory?id={{i.id}}" title="Delete">❌</a>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

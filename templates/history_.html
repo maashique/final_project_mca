@@ -1,0 +1,88 @@
+{% extends "userBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+<section class="w3l-contact-11">
+	<div class="form-41-mian py-5 text-center">
+		<div class="container py-lg-4">
+			<div class="row align-form-map">
+				<div class="col-lg-10 form-inner-cont" style="margin: auto">
+					<div class="title-content text-left">
+						<h3 class="hny-title mb-lg-5 mb-4 text-center">History</h3>
+					</div>
+					<div class="forTable">
+						<table class="table table-hover tabel-sriped tabel-dark">
+							<tr>
+								<th style="border-right: 3px solid gray">Date</th>
+								<th>Product</th>
+								<th>Flipkart</th>
+								<th>Link</th>
+								<th style="border-right: 3px solid gray">Rate</th>
+								<th>Amazon</th>
+								<th>Link</th>
+								<th>Rate</th>
+							</tr>
+							{% for r in res %}
+							<tr>
+								<td style="border-right: 3px solid gray">
+									{{r.requirements.date}}
+								</td>
+								<td>{{r.requirements.desc}}</td>
+								<td>
+									{{r.desc1}} <br />
+									<a
+										href="/addToWish?res={{r.id}}&si=flipkart"
+										class="text-success"
+										><i
+											class="fa fa-heart-o"
+											aria-hidden="true"
+											title="Add to wishlist"
+										></i
+									></a>
+									
+								</td>
+								<td><a href="{{r.url1}}">Link</a></td>
+								<td style="border-right: 3px solid gray">{{r.rate1}}</td>
+								<td>
+									{{r.desc2}} <br />
+
+									<a
+										href="/addToWish?res={{r.id}}&si=amazone"
+										class="text-success"
+										><i
+											class="fa fa-heart-o"
+											aria-hidden="true"
+											title="Add to wishlist"
+										></i
+									></a>
+									<!-- {% if r.id not in favList %}
+									<a
+										href="/addToWish?res={{r.id}}&si=flipkart"
+										class="text-success"
+										><i
+											class="fa fa-heart-o"
+											aria-hidden="true"
+											title="Add to wishlist"
+										></i
+									></a>
+									{% else %}
+									<i
+										class="fa fa-heart text-success"
+										title="Already in the wishlist"
+										aria-hidden="true"
+									></i>
+									{% endif %} -->
+								</td>
+								<td><a href="{{r.url2}}">Link</a></td>
+								<td>{{r.rate2}}</td>
+								<td><a href="/deleteHistory?id={{r.id}}">❌</a></td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}

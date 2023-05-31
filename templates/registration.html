@@ -1,0 +1,132 @@
+{% extends "commonBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+<section class="w3l-contact-11">
+	<div class="form-41-mian py-5 text-center">
+		<div class="container py-lg-4">
+			<div class="row align-form-map">
+				<div class="col-lg-6 form-inner-cont" style="margin: auto">
+					<div class="title-content text-left">
+						<h3 class="hny-title mb-lg-5 mb-4 text-center">Registration</h3>
+					</div>
+					<form action="" method="post" class="signin-form" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class="form-input">
+							<input type="text" name="name" id="w3lName" placeholder="Name" />
+						</div>
+						<div class="row con-two">
+							<div class="col-lg-6 form-input">
+								<input
+									type="email"
+									name="email"
+									id="w3lSender"
+									placeholder="Email"
+									required=""
+								/>
+							</div>
+							
+							<div class="col-lg-6 form-input">
+								Profile:
+								<input
+									type="file"
+									name="file"
+									id="w3lSender"
+									placeholder="Profile"
+									required=""
+								/>
+							</div>
+							<div class="col-lg-6 form-input">
+								<input
+									type="text"
+									name="phone"
+									pattern="[6789][0-9]{9}"
+									maxlength="10"
+									placeholder="Phone"
+									class="contact-input"
+								/>
+							</div>
+						</div>
+						<div class="form-input">
+							<textarea
+								placeholder="Address"
+								name="address"
+								id="w3lMessage"
+								required=""
+							></textarea>
+						</div>
+						<div class="form-input">
+							<input
+								type="password"
+								name="password"
+								id="password"
+								placeholder="Password"
+								pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+								title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+								required=""
+							/>
+						</div>
+						<div class="form-input">
+							<input
+								type="password"
+								name="cPassword"
+								id="cPassword"
+								onkeyup="myFun(this.value)"
+								placeholder="Confirm Password"
+								pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$"
+								title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+								required=""
+							/>
+						</div>
+						<div
+							class="bg-danger p-3 text-light"
+							id="error-message"
+							style="display: none"
+						></div>
+						<div class="submit-button text-lg text-center">
+							<button
+								type="submit"
+								id="subBtn"
+								class="btn btn-style"
+								style="margin: auto"
+							>
+								Register
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="map"></div>
+</section>
+
+<script>
+	function myFun(cPass) {
+		ePass = document.getElementById('password').value;
+		console.log('CPass: ' + cPass);
+		console.log('EPass: ' + ePass);
+		if (cPass != ePass) {
+			document.getElementById('subBtn').disabled = true;
+			document.getElementById('error-message').style.display = 'block';
+			document.getElementById('error-message').innerText =
+				"Password Dosen't Match";
+		} else {
+			document.getElementById('subBtn').disabled = false;
+			document.getElementById('error-message').style.display = 'none';
+		}
+	}
+</script>
+<script>
+	$(document).ready(() => {
+		$('#messageDiv').fadeOut(5000);
+	});
+</script>
+{% if msg %}
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %}
+<!-- //contact-form -->
+<!-- footer-66 -->
+{% endblock %}

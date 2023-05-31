@@ -1,0 +1,69 @@
+{% extends "userBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+<br><br><br>
+<h3 class="hny-title mb-lg-5 mb-4 text-center">{{pid.name}}</h3>
+
+<style>
+    table{
+        padding: 10px;
+    }
+    td,th{
+        padding: 10px;
+        color: black;
+    }
+    
+    
+</style>
+{% if pid %}
+<center>
+<table>
+    <tr>
+        <th>
+            PRODUCT DETAILS
+
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <img src="/static/media/{{pid.img}}" height="400px" width="400px">
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            {{pid.desc}}
+        </td>
+    </tr>
+    
+    <tr>
+        <td>
+            Rating   :   {{pid.Rat}}  /  5
+        </td>
+    </tr>
+   
+    
+    <form method="POST">
+        {% csrf_token %}
+    <tr id="comment">
+        <td><textarea name="review" class="form-control" placeholder="Add Review"></textarea></td>
+         <input type="hidden" name="hotel" value="{{pid.id}}"> 
+    </tr>
+    <tr>
+        <td><button type="submit" class="btn btn-danger">Submit Review</button></td>
+    </tr>
+</form>
+</table>
+
+</center>
+<br><br>
+{% endif %}
+
+<!-- //contact-form -->
+<!-- footer-66 -->
+{% if msg %}
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %} {% endblock %}

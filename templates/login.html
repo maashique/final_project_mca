@@ -1,0 +1,50 @@
+{% extends "commonBase.html" %} {% block content %}
+<!--/header-->
+<div class="inner-banner"></div>
+<!-- /contact-form -->
+<section class="w3l-contact-11">
+	<div class="form-41-mian py-5 text-center">
+		<div class="container py-lg-4">
+			<div class="row align-form-map">
+				<div class="col-lg-6 form-inner-cont" style="margin: auto">
+					<div class="title-content text-left">
+						<h3 class="hny-title mb-lg-5 mb-4 text-center">Login</h3>
+					</div>
+					<form action="" method="post" class="signin-form">
+						{% csrf_token%}
+						<div class="form-input">
+							<input
+								type="text"
+								name="email"
+								id="w3lName"
+								placeholder="Username"
+							/>
+						</div>
+						<div class="form-input">
+							<input
+								type="password"
+								name="password"
+								id="w3lSender"
+								placeholder="Password"
+								required=""
+							/>
+						</div>
+						<div class="submit-button text-lg text-center">
+							<button type="submit" class="btn btn-style" style="margin: auto">
+								Login
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% if msg %}
+<script>
+	alert('{{msg}}');
+</script>
+{% endif %}
+<!-- //contact-form -->
+<!-- footer-66 -->
+{% endblock %}
